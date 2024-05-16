@@ -1,0 +1,12 @@
+build:
+	pkg in manpages
+	mkdir out
+	g++ -o out/sudo src/sudo.cpp
+
+install:
+	mkdir -p /data/data/com.termux/files/usr/share/termux-sudo/man
+	cp -rf out/sudo /data/data/com.termux/files/usr/bin/sudo
+	cp -rf man/termux-sudo.1 /data/data/com.termux/files/usr/share/man/man1
+
+clean:
+	rm -rf out
